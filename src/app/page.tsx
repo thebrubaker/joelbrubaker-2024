@@ -153,7 +153,7 @@ function Resume() {
     },
     {
       company: 'Blitz',
-      title: 'Principal Engineer, Frontend',
+      title: 'Principal Engineer',
       logo: logoFacebook,
       start: '2022',
       end: '2023',
@@ -196,7 +196,7 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+        {[image2, image3, image5, image4, image1].map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
@@ -225,12 +225,12 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-3xl">
           <h1 className="text-5xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Creator at Heart, Engineer by Trade, Adventuring through Spacetime.
+            Software engineer, tinkerer, and part-time entrepreneur.
           </h1>
           <p className="mt-6 max-w-3xl text-base text-zinc-600 dark:text-zinc-400">
-            I&apos;m Joel – an inventive software engineer, passionate creator,
-            and proud father of two high-spirited young girls. I&apos;m also a
-            part-time founder of SparkAtlas, and co-creator of the{' '}
+            I&apos;m Joel – a full stack software engineer and tinkerer /
+            creator, with maybe one-too-many hobbies. I&apos;m also a co-creator
+            of the{' '}
             <a className="text-teal-500 " href="https://spacetraders.io/">
               SpaceTraders API
             </a>{' '}

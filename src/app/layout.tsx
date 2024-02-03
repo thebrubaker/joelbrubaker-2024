@@ -8,11 +8,10 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - Joel Brubaker',
-    default:
-      'Joel Brubaker - Creator at Heart, Engineer by Trade, Adventuring through Spacetime.',
+    default: 'Joel Brubaker - Adventuring through spacetime.',
   },
   description:
-    "I'm Joel – an inventive software engineer, entrepreneur, and co-creator of SpaceTraders.",
+    "I'm Joel – a full-stack software engineer, tinkerer, and part-time entrepreneur.",
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
