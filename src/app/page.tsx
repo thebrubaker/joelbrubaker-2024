@@ -179,7 +179,7 @@ function Resume() {
         ))}
       </ol>
       <Button
-        href="/files/joel-brubaker-resume-2023.pdf"
+        href="/files/joel-brubaker-resume-2024.pdf"
         variant="secondary"
         className="group mt-6 w-full"
       >
