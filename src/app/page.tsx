@@ -5,11 +5,6 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon, XIcon } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/mayfairus_logo.jpeg'
-import logoFacebook from '@/images/logos/blitz.svg'
-import logoPlanetaria from '@/images/logos/spark-atlas-2.svg'
-import logoStarbucks from '@/images/logos/switchboard.png'
 import image1 from '@/images/photos/IMG_0115.jpg'
 import image2 from '@/images/photos/IMG_1175.jpg'
 import image3 from '@/images/photos/IMG_2432.jpg'
@@ -19,6 +14,8 @@ import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 import React from 'react'
 import { Newsletter } from '@/components/Newsletter'
+import { roles } from '@/data/resume'
+import { description, headline, socialLinks } from '@/data/about'
 
 function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -111,62 +108,27 @@ function Role({ role }: { role: Role }) {
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
           {role.company}
         </dd>
-        <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {role.title}
-        </dd>
-        <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label={`${startLabel} until ${endLabel}`}
-        >
-          <time dateTime={startDate}>{startLabel}</time>{' '}
-          <span aria-hidden="true">—</span>{' '}
-          <time dateTime={endDate}>{endLabel}</time>
-        </dd>
+        <div className="flex w-full flex-col justify-between sm:flex-row">
+          <dt className="sr-only">Role</dt>
+          <dd className="flex-1 truncate text-xs text-zinc-500 dark:text-zinc-400">
+            {role.title}
+          </dd>
+          <dt className="sr-only">Date</dt>
+          <dd
+            className="ml:aut whitespace-nowrap text-xs text-zinc-400 md:ml-auto dark:text-zinc-500"
+            aria-label={`${startLabel} until ${endLabel}`}
+          >
+            <time dateTime={startDate}>{startLabel}</time>{' '}
+            <span aria-hidden="true">—</span>{' '}
+            <time dateTime={endDate}>{endLabel}</time>
+          </dd>
+        </div>
       </dl>
     </li>
   )
 }
 
 function Resume() {
-  let resume: Array<Role> = [
-    {
-      company: 'SparkAtlas',
-      title: 'Part-time Founder',
-      logo: logoPlanetaria,
-      start: '2019',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
-    },
-    {
-      company: 'Mayfair',
-      title: 'Lead Software Engineer',
-      logo: logoAirbnb,
-      start: '2023',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
-    },
-    {
-      company: 'Blitz',
-      title: 'Principal Engineer',
-      logo: logoFacebook,
-      start: '2022',
-      end: '2023',
-    },
-    {
-      company: 'Switchboard',
-      title: 'Lead Software Engineer',
-      logo: logoStarbucks,
-      start: '2020',
-      end: '2022',
-    },
-  ]
-
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -174,7 +136,7 @@ function Resume() {
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
+        {roles.map((role, roleIndex) => (
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
@@ -225,34 +187,20 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-3xl">
           <h1 className="text-5xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software engineer, tinkerer, and part-time entrepreneur.
+            {headline}
           </h1>
           <p className="mt-6 max-w-3xl text-base text-zinc-600 dark:text-zinc-400">
-            I&apos;m Joel – a full stack software engineer and tinkerer /
-            creator, with maybe one-too-many hobbies. I&apos;m also a co-creator
-            of the{' '}
-            <a className="text-teal-500 " href="https://spacetraders.io/">
-              SpaceTraders API
-            </a>{' '}
-            - an immersive space-trading game where developers sharpen their
-            skills through collaboration and competition.
+            {description}
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://twitter.com/JoelBrubaker"
-              aria-label="Follow on Twitter"
-              icon={XIcon}
-            />
-            <SocialLink
-              href="https://github.com/thebrubaker"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/joelbrubaker/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
+            {socialLinks.map((link) => (
+              <SocialLink
+                key={link.href}
+                href={link.href}
+                aria-label={link.ariaLabel}
+                icon={link.icon}
+              />
+            ))}
           </div>
         </div>
       </Container>

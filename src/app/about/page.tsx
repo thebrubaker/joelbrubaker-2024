@@ -4,12 +4,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  XIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, XIcon } from '@/components/SocialIcons'
 import portraitImage from '@/images/photos/bear-about-me.png'
 
 function SocialLink({
@@ -93,10 +88,16 @@ export default function About() {
               in my personal growth.
             </p>
             <p>
-              I&apos;m currently a Lead Software Engineer with Mayfair building
-              the future of cash management for venture-backed startups, and the
-              founder of SpaceTraders, where aspiring programmers can learn and
-              test their skills in a living, breathing universe.
+              I&apos;m currently a Lead Software Engineer with{' '}
+              <a className="text-teal-500" href="https://www.getmayfair.com/">
+                Mayfair
+              </a>
+              , where we are building the future of cash management for
+              venture-backed startups, and creator of the{' '}
+              <a className="text-teal-500" href="https://docs.spacetraders.io/">
+                SpaceTraders API
+              </a>
+              , a popular programming game for aspiring developers.
             </p>
           </div>
         </div>

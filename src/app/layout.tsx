@@ -6,14 +6,14 @@ import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 
 import '@/styles/tailwind.css'
+import { pageDescription, pageTitle, pageTitleTemplate } from '@/data/about'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Joel Brubaker',
-    default: 'Joel Brubaker - Adventuring through spacetime.',
+    template: pageTitleTemplate,
+    default: pageTitle,
   },
-  description:
-    "I'm Joel – a full-stack software engineer, tinkerer, and part-time entrepreneur.",
+  description: pageDescription,
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
